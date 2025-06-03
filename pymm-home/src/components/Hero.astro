@@ -1,0 +1,274 @@
+---
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Modern Python
+        <span class="gradient-text">Memory Management</span>
+      </h1>
+      <p class="hero-description">
+        Efficient, safe, and intuitive memory management for Python applications. 
+        Build faster, more reliable software with pymm's advanced memory optimization tools.
+      </p>
+      <div class="hero-actions">
+        <a href="/docs" class="button button-primary">Get Started</a>
+        <a href="/gallery" class="button button-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5,3 19,12 5,21 5,3"></polygon>
+          </svg>
+          View Examples
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">10x</span>
+          <span class="stat-label">Faster</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">99.9%</span>
+          <span class="stat-label">Memory Safe</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Dependencies</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-preview">
+        <div class="code-header">
+          <div class="code-controls">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <span class="code-title">memory_manager.py</span>
+        </div>
+        <div class="code-content">
+          <pre><code><span class="keyword">import</span> <span class="module">pymm</span>
+
+<span class="decorator">@pymm.optimize</span>
+<span class="keyword">def</span> <span class="function">process_data</span>(<span class="param">data</span>):
+    <span class="comment"># Automatic memory optimization</span>
+    <span class="keyword">with</span> <span class="module">pymm</span>.<span class="function">managed_context</span>():
+        <span class="variable">result</span> = <span class="function">heavy_computation</span>(<span class="param">data</span>)
+        <span class="keyword">return</span> <span class="variable">result</span>
+
+<span class="comment"># Zero-copy data transfers</span>
+<span class="variable">optimized_data</span> = <span class="module">pymm</span>.<span class="function">zero_copy</span>(<span class="param">large_array</span>)</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #111827;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+  }
+
+  .button-primary {
+    background: #2563eb;
+    color: white;
+  }
+
+  .button-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+  }
+
+  .button-secondary {
+    background: white;
+    color: #374151;
+    border-color: #e5e7eb;
+  }
+
+  .button-secondary:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2563eb;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .code-preview {
+    background: #1e293b;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: #334155;
+    border-bottom: 1px solid #475569;
+  }
+
+  .code-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background: #ef4444; }
+  .dot.yellow { background: #eab308; }
+  .dot.green { background: #22c55e; }
+
+  .code-title {
+    color: #e2e8f0;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .code-content {
+    padding: 1.5rem;
+  }
+
+  .code-content pre {
+    margin: 0;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #e2e8f0;
+  }
+
+  .keyword { color: #c084fc; }
+  .module { color: #60a5fa; }
+  .function { color: #fbbf24; }
+  .param { color: #f87171; }
+  .variable { color: #34d399; }
+  .comment { color: #6b7280; }
+  .decorator { color: #fb7185; }
+
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 4rem 0 2rem;
+      min-height: auto;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button {
+      width: 200px;
+      justify-content: center;
+    }
+
+    .hero-stats {
+      justify-content: center;
+    }
+  }
+</style>
