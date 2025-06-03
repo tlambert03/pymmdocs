@@ -1,0 +1,12 @@
+[submodule "pymm-docs/submodules/pymmcore-plus"]
+	path = pymm-docs/submodules/pymmcore-plus
+	url = https://github.com/pymmcore-plus/pymmcore-plus
+[submodule "pymm-docs/submodules/pymmcore-widgets"]
+	path = pymm-docs/submodules/pymmcore-widgets
+	url = https://github.com/pymmcore-plus/pymmcore-widgets
+[submodule "pymm-docs/submodules/useq-schema"]
+	path = pymm-docs/submodules/useq-schema
+	url = https://github.com/pymmcore-plus/useq-schema
+[submodule "pymm-docs/submodules/pymmcore-gui"]
+	path = pymm-docs/submodules/pymmcore-gui
+	url = https://github.com/pymmcore-plus/pymmcore-gui
