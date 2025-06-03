@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "workspaces": [
+    "pymm-home",
+    "pymm-docs"
+  ],
+  "scripts": {
+    "dev": "npm --workspace pymm-home run dev",
+    "docs:serve": "mkdocs serve -f pymm-docs/mkdocs.yml",
+    "docs:build": "mkdocs build -f pymm-docs/mkdocs.yml"
+  }
+}
