@@ -1,6 +1,9 @@
 ---
-const docsUrl = "https://docs.example.com";
+const docsUrl = import.meta.env.DEV
+  ? "http://localhost:8000"
+  : "https://docs.example.com";
 ---
+
 <header>
   <nav>
     <a href="/">Home</a>
