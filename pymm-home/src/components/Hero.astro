@@ -1,21 +1,33 @@
 ---
+import CodePreview from "./CodePreview.astro";
 ---
 
 <section class="hero">
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">
-        Python<br>
+        Python<br />
         <span class="gradient-text">Micro-Manager</span>
       </h1>
       <p class="hero-description">
-        Pure Python microscopy control with the pymmcore-plus ecosystem. 
-        Four tightly integrated packages for modern microscopy applications without Java dependencies.
+        Pure Python microscopy control with the pymmcore-plus ecosystem. Four
+        tightly integrated packages for modern microscopy applications without
+        Java dependencies.
       </p>
       <div class="hero-actions">
-        <a href="http://localhost:8000/quickstart/" class="button button-primary">Get Started</a>
+        <a
+          href="http://localhost:8000/quickstart/"
+          class="button button-primary">Get Started</a
+        >
         <a href="/gallery" class="button button-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <polygon points="5,3 19,12 5,21 5,3"></polygon>
           </svg>
           View Examples
@@ -28,7 +40,7 @@
         </div>
         <div class="stat">
           <span class="stat-number">100%</span>
-          <span class="stat-label">Pure Python</span>
+          <span class="stat-label">Python/C++</span>
         </div>
         <div class="stat">
           <span class="stat-number">0</span>
@@ -37,35 +49,27 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="code-preview">
-        <div class="code-header">
-          <div class="code-controls">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <span class="code-title">microscopy_control.py</span>
-        </div>
-        <div class="code-content">
-          <pre><code><span class="keyword">from</span> <span class="module">pymmcore_plus</span> <span class="keyword">import</span> <span class="function">CMMCorePlus</span>
-<span class="keyword">from</span> <span class="module">useq</span> <span class="keyword">import</span> <span class="function">MDASequence</span>
+      <CodePreview title="microscope_control.py">
+        {`
+from pymmcore_plus import CMMCorePlus
+from useq import MDASequence
 
-<span class="comment"># Create enhanced core instance</span>
-<span class="variable">mmc</span> = <span class="function">CMMCorePlus</span>.<span class="function">instance</span>()
-<span class="comment"># Your existing micro-manager config works</span>
-<span class="variable">mmc</span>.<span class="function">loadSystemConfiguration</span>(...)
+# Create enhanced core instance
+mmc = CMMCorePlus.instance()
+# Your existing micro-manager config works
+mmc.loadSystemConfiguration(...)
 
-<span class="comment"># Define multi-dimensional experiment</span>
-<span class="variable">sequence</span> = <span class="function">MDASequence</span>(
-    <span class="param">channels</span>=[<span class="string">"DAPI"</span>, <span class="string">"FITC"</span>, <span class="string">"Cy3"</span>],
-    <span class="param">z_plan</span>=<span class="param">{`{"range": 10, "step": 0.5}`}</span>,
-    <span class="param">time_plan</span>=<span class="param">{`{"interval": 300, "loops": 24}`}</span>
+# Define multi-dimensional experiment
+sequence = MDASequence(
+    channels=["DAPI", "FITC", "Cy3"],
+    z_plan={"range": 10, "step": 0.5},
+    time_plan={"interval": 300, "loops": 24}
 )
 
-<span class="comment"># Run acquisition</span>
-<span class="variable">mmc</span>.<span class="function">run_mda</span>(<span class="variable">sequence</span>)</code></pre>
-        </div>
-      </div>
+# Run acquisition
+mmc.run_mda(sequence)
+        `}
+      </CodePreview>
     </div>
   </div>
 </section>
@@ -177,65 +181,6 @@
     display: flex;
     justify-content: center;
   }
-
-  .code-preview {
-    background: #1e293b;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    max-width: 500px;
-    width: 100%;
-  }
-
-  .code-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    background: #334155;
-    border-bottom: 1px solid #475569;
-  }
-
-  .code-controls {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-
-  .dot.red { background: #ef4444; }
-  .dot.yellow { background: #eab308; }
-  .dot.green { background: #22c55e; }
-
-  .code-title {
-    color: #e2e8f0;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .code-content {
-    padding: 1.5rem;
-  }
-
-  .code-content pre {
-    margin: 0;
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-    font-size: 0.875rem;
-    line-height: 1.7;
-    color: #e2e8f0;
-  }
-
-  .keyword { color: #c084fc; }
-  .module { color: #60a5fa; }
-  .function { color: #fbbf24; }
-  .param { color: #f87171; }
-  .variable { color: #34d399; }
-  .comment { color: #6b7280; }
-  .decorator { color: #fb7185; }
 
   @media (max-width: 1024px) {
     .container {

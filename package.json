@@ -9,8 +9,8 @@
   },
   "scripts": {
     "dev:astro": "npm --workspace pymm-home run dev",
-    "dev:docs": "mkdocs serve -f pymm-docs/mkdocs.yml -a 127.0.0.1:8000",
-    "dev": "concurrently -k -n astro,docs -c green,magenta \"npm run dev:astro\" \"npm run dev:docs\"",
-    "docs:build": "mkdocs build -f pymm-docs/mkdocs.yml"
+    "dev:docs": "uv run mkdocs serve -f pymm-docs/mkdocs.yml -a 127.0.0.1:8000",
+    "dev": "concurrently -k -n astro,docs -c green,magenta \"npm run dev:docs\" \"npm run dev:astro\"",
+    "docs:build": "uv run mkdocs build -f pymm-docs/mkdocs.yml"
   }
 }
