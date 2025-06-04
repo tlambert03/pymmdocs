@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Astro dev + embedded DevTools",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "npm run dev",
+            "serverReadyAction": {
+                "pattern": "(http://localhost:\\d+)",
+                "uriFormat": "%s",
+                "action": "debugWithEdge"
+            }
+        }
+    ]
+}
