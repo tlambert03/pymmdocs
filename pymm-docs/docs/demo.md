@@ -1,4 +1,5 @@
 ---
+title: Markdown Demo
 icon: material/language-markdown-outline  # sets the header icon
 description: "This is a demo of the markdown syntax."  # meta description
 tags:
@@ -6,7 +7,6 @@ tags:
   - Some Other Tag
 ---
 
-# Markdown Demo
 
 !!!Note
     This is a demo of the markdown syntax used in this documentation. It is not

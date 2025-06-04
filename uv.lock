@@ -1069,6 +1069,19 @@ wheels = [
 ]
 
 [[package]]
+name = "mkdocs-monorepo-plugin"
+version = "1.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mkdocs" },
+    { name = "python-slugify" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f7/6c/5b2a34fd63fe20724e2edf1879e977b40453efe40e1c385a05f38b420664/mkdocs-monorepo-plugin-1.1.0.tar.gz", hash = "sha256:ccc566e166aac5ae7fade498c15c4a337a4892d238629b51aba8ef3fc7099034", size = 13435, upload-time = "2024-01-04T14:29:15.892Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d3/33/4cc6c70223aee511244f8fe7706df70d1cd253d1446ab466c73f9dfbaab5/mkdocs_monorepo_plugin-1.1.0-py3-none-any.whl", hash = "sha256:7bbfd9756a7fdecf64d6105dad96cce7e7bb5f0d6cfc2bfda31a1919c77cc3b9", size = 14312, upload-time = "2024-01-04T14:29:14.09Z" },
+]
+
+[[package]]
 name = "mkdocs-section-index"
 version = "0.3.10"
 source = { registry = "https://pypi.org/simple" }
@@ -1846,9 +1859,12 @@ dev = [
     { name = "mkdocs-api-autonav" },
     { name = "mkdocs-material" },
     { name = "mkdocs-minify-plugin" },
+    { name = "mkdocs-monorepo-plugin" },
     { name = "mkdocs-spellcheck", extra = ["all"] },
+    { name = "mkdocs-typer" },
     { name = "pre-commit" },
     { name = "ruff" },
+    { name = "typer" },
     { name = "types-markdown" },
 ]
 
@@ -1865,9 +1881,12 @@ dev = [
     { name = "mkdocs-api-autonav", specifier = ">=0.2.1" },
     { name = "mkdocs-material", specifier = ">=9.6.14" },
     { name = "mkdocs-minify-plugin", specifier = ">=0.8.0" },
+    { name = "mkdocs-monorepo-plugin", specifier = ">=1.1.0" },
     { name = "mkdocs-spellcheck", extras = ["all"], specifier = ">=1.1.1" },
+    { name = "mkdocs-typer", specifier = ">=0.0.3" },
     { name = "pre-commit", specifier = ">=4.2.0" },
     { name = "ruff", specifier = ">=0.11.9" },
+    { name = "typer", specifier = ">=0.16.0" },
     { name = "types-markdown", specifier = ">=3.8.0.20250415" },
 ]
 
@@ -2016,10 +2035,11 @@ dev = [
     { name = "pre-commit" },
     { name = "pydantic", marker = "python_full_version >= '3.13'" },
     { name = "pymmcore" },
-    { name = "pymmcore-plus", extra = ["io"] },
-    { name = "pyqt6" },
+    { name = "pymmcore-plus", extra = ["io", "pyqt6"] },
     { name = "pytest" },
     { name = "pytest-cov" },
+    { name = "pytest-qt" },
+    { name = "qtpy" },
     { name = "ruff" },
     { name = "xarray" },
 ]
@@ -2032,24 +2052,48 @@ docs = [
     { name = "mkdocstrings-python" },
 ]
 pyqt5 = [
-    { name = "pymmcore-plus", extra = ["pyqt5"] },
+    { name = "msgpack" },
+    { name = "msgspec" },
+    { name = "pymmcore" },
+    { name = "pymmcore-plus", extra = ["io", "pyqt5"] },
+    { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "pytest-qt" },
     { name = "qtpy" },
+    { name = "xarray" },
 ]
 pyqt6 = [
-    { name = "pymmcore-plus", extra = ["pyqt6"] },
+    { name = "msgpack" },
+    { name = "msgspec" },
+    { name = "pymmcore" },
+    { name = "pymmcore-plus", extra = ["io", "pyqt6"] },
+    { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "pytest-qt" },
     { name = "qtpy" },
+    { name = "xarray" },
 ]
 pyside2 = [
-    { name = "pymmcore-plus", extra = ["pyside2"] },
+    { name = "msgpack" },
+    { name = "msgspec" },
+    { name = "pymmcore" },
+    { name = "pymmcore-plus", extra = ["io", "pyside2"] },
+    { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "pytest-qt" },
     { name = "qtpy" },
+    { name = "xarray" },
 ]
 pyside6 = [
-    { name = "pymmcore-plus", extra = ["pyside6"] },
+    { name = "msgpack" },
+    { name = "msgspec" },
+    { name = "pymmcore" },
+    { name = "pymmcore-plus", extra = ["io", "pyside6"] },
+    { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "pytest-qt" },
     { name = "qtpy" },
+    { name = "xarray" },
 ]
 test = [
     { name = "msgpack" },
@@ -2071,8 +2115,15 @@ test-codspeed = [
     { name = "xarray" },
 ]
 test-qt = [
+    { name = "msgpack" },
+    { name = "msgspec" },
+    { name = "pymmcore" },
+    { name = "pymmcore-plus", extra = ["io"] },
+    { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "pytest-qt" },
     { name = "qtpy" },
+    { name = "xarray" },
 ]
 
 [package.metadata]
@@ -2111,9 +2162,11 @@ dev = [
     { name = "pydantic", marker = "python_full_version >= '3.13'", specifier = ">2.7.4" },
     { name = "pymmcore", specifier = ">=11.5.0.73" },
     { name = "pymmcore-plus", extras = ["io"], editable = "pymm-docs/submodules/pymmcore-plus" },
-    { name = "pyqt6", specifier = ">=6.4.2" },
+    { name = "pymmcore-plus", extras = ["pyqt6"], editable = "pymm-docs/submodules/pymmcore-plus" },
     { name = "pytest", specifier = ">=8" },
     { name = "pytest-cov", specifier = ">=5" },
+    { name = "pytest-qt", specifier = ">=4.4" },
+    { name = "qtpy", specifier = ">=2" },
     { name = "ruff", specifier = ">=0.9.4" },
     { name = "xarray", specifier = ">=2024.1" },
 ]
@@ -2126,24 +2179,52 @@ docs = [
     { name = "mkdocstrings-python", specifier = "==1.1.2" },
 ]
 pyqt5 = [
+    { name = "msgpack", specifier = ">=1" },
+    { name = "msgspec", specifier = ">=0.19" },
+    { name = "pymmcore", specifier = ">=11.5.0.73" },
+    { name = "pymmcore-plus", extras = ["io"], editable = "pymm-docs/submodules/pymmcore-plus" },
     { name = "pymmcore-plus", extras = ["pyqt5"], editable = "pymm-docs/submodules/pymmcore-plus" },
+    { name = "pytest", specifier = ">=8" },
+    { name = "pytest-cov", specifier = ">=5" },
     { name = "pytest-qt", specifier = ">=4.4" },
     { name = "qtpy", specifier = ">=2" },
+    { name = "xarray", specifier = ">=2024.1" },
 ]
 pyqt6 = [
+    { name = "msgpack", specifier = ">=1" },
+    { name = "msgspec", specifier = ">=0.19" },
+    { name = "pymmcore", specifier = ">=11.5.0.73" },
+    { name = "pymmcore-plus", extras = ["io"], editable = "pymm-docs/submodules/pymmcore-plus" },
     { name = "pymmcore-plus", extras = ["pyqt6"], editable = "pymm-docs/submodules/pymmcore-plus" },
+    { name = "pytest", specifier = ">=8" },
+    { name = "pytest-cov", specifier = ">=5" },
     { name = "pytest-qt", specifier = ">=4.4" },
     { name = "qtpy", specifier = ">=2" },
+    { name = "xarray", specifier = ">=2024.1" },
 ]
 pyside2 = [
+    { name = "msgpack", specifier = ">=1" },
+    { name = "msgspec", specifier = ">=0.19" },
+    { name = "pymmcore", specifier = ">=11.5.0.73" },
+    { name = "pymmcore-plus", extras = ["io"], editable = "pymm-docs/submodules/pymmcore-plus" },
     { name = "pymmcore-plus", extras = ["pyside2"], editable = "pymm-docs/submodules/pymmcore-plus" },
+    { name = "pytest", specifier = ">=8" },
+    { name = "pytest-cov", specifier = ">=5" },
     { name = "pytest-qt", specifier = ">=4.4" },
     { name = "qtpy", specifier = ">=2" },
+    { name = "xarray", specifier = ">=2024.1" },
 ]
 pyside6 = [
+    { name = "msgpack", specifier = ">=1" },
+    { name = "msgspec", specifier = ">=0.19" },
+    { name = "pymmcore", specifier = ">=11.5.0.73" },
+    { name = "pymmcore-plus", extras = ["io"], editable = "pymm-docs/submodules/pymmcore-plus" },
     { name = "pymmcore-plus", extras = ["pyside6"], editable = "pymm-docs/submodules/pymmcore-plus" },
+    { name = "pytest", specifier = ">=8" },
+    { name = "pytest-cov", specifier = ">=5" },
     { name = "pytest-qt", specifier = ">=4.4" },
     { name = "qtpy", specifier = ">=2" },
+    { name = "xarray", specifier = ">=2024.1" },
 ]
 test = [
     { name = "msgpack", specifier = ">=1" },
@@ -2165,8 +2246,15 @@ test-codspeed = [
     { name = "xarray", specifier = ">=2024.1" },
 ]
 test-qt = [
+    { name = "msgpack", specifier = ">=1" },
+    { name = "msgspec", specifier = ">=0.19" },
+    { name = "pymmcore", specifier = ">=11.5.0.73" },
+    { name = "pymmcore-plus", extras = ["io"], editable = "pymm-docs/submodules/pymmcore-plus" },
+    { name = "pytest", specifier = ">=8" },
+    { name = "pytest-cov", specifier = ">=5" },
     { name = "pytest-qt", specifier = ">=4.4" },
     { name = "qtpy", specifier = ">=2" },
+    { name = "xarray", specifier = ">=2024.1" },
 ]
 
 [[package]]
@@ -2658,6 +2746,18 @@ wheels = [
 ]
 
 [[package]]
+name = "python-slugify"
+version = "8.0.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "text-unidecode" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/87/c7/5e1547c44e31da50a460df93af11a535ace568ef89d7a811069ead340c4a/python-slugify-8.0.4.tar.gz", hash = "sha256:59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856", size = 10921, upload-time = "2024-02-08T18:32:45.488Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a4/62/02da182e544a51a5c3ccf4b03ab79df279f9c60c5e82d5e8bec7ca26ac11/python_slugify-8.0.4-py2.py3-none-any.whl", hash = "sha256:276540b79961052b66b7d116620b36518847f52d5fd9e3a70164fc8c50faa6b8", size = 10051, upload-time = "2024-02-08T18:32:43.911Z" },
+]
+
+[[package]]
 name = "python3-xlib"
 version = "0.15"
 source = { registry = "https://pypi.org/simple" }
@@ -3024,6 +3124,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/46/56/c1245f7bb674072bb0f9e8516bd60f7608ffe114e911c08ebcaefca58f46/tensorstore-0.1.75-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f00144d23eaf511104651b4479fcb111b9befc13db3018277d358144be503ef4", size = 17454695, upload-time = "2025-05-14T00:37:58.521Z" },
     { url = "https://files.pythonhosted.org/packages/db/78/8a103a9012662fb8d85c3d6daa9c9678d49f260a21b5426e0a1616e63c42/tensorstore-0.1.75-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5c8697cab7b24440a13df8d9e6d000c1067ed3f97204a3dae5388e9e60606834", size = 18820794, upload-time = "2025-05-14T00:38:01.253Z" },
     { url = "https://files.pythonhosted.org/packages/7d/3d/69d7997fe67fd9cb8fce07ea0f3f3e754a6ea0d2c16f1c46e178abe7da0e/tensorstore-0.1.75-cp313-cp313-win_amd64.whl", hash = "sha256:df410ca28e679c1c8a5b361267ce02fe60a9c4d78964cb984d884d15c538f2f2", size = 12607428, upload-time = "2025-05-14T00:38:03.32Z" },
+]
+
+[[package]]
+name = "text-unidecode"
+version = "1.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ab/e2/e9a00f0ccb71718418230718b3d900e71a5d16e701a3dae079a21e9cd8f8/text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93", size = 76885, upload-time = "2019-08-30T21:36:45.405Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a6/a5/c0b6468d3824fe3fde30dbb5e1f687b291608f9473681bbf7dabbf5a87d7/text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8", size = 78154, upload-time = "2019-08-30T21:37:03.543Z" },
 ]
 
 [[package]]

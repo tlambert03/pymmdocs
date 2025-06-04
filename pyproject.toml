@@ -14,9 +14,12 @@ dev = [
     "mkdocs-api-autonav>=0.2.1",
     "mkdocs-material>=9.6.14",
     "mkdocs-minify-plugin>=0.8.0",
+    "mkdocs-monorepo-plugin>=1.1.0",
     "mkdocs-spellcheck[all]>=1.1.1",
+    "mkdocs-typer>=0.0.3",
     "pre-commit>=4.2.0",
     "ruff>=0.11.9",
+    "typer>=0.16.0",
     "types-markdown>=3.8.0.20250415",
 ]
 
