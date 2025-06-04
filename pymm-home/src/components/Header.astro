@@ -8,13 +8,14 @@ const docsUrl = import.meta.env.DEV
   <div class="container">
     <div class="logo">
       <a href="/">
+        <img src="/logo_trans.png" alt="PyMM Logo" class="logo-image" />
         <span class="logo-text">pymm</span>
       </a>
     </div>
     <nav class="nav">
-      <a href="/ecosystem" class="nav-link">Ecosystem</a>
-      <a href={docsUrl} class="nav-link">Docs</a>
-      <a href="/examples" class="nav-link">Examples</a>
+      <a href="/ecosystem" class="nav-link">ecosystem</a>
+      <a href={docsUrl} class="nav-link">docs</a>
+      <a href="/examples" class="nav-link">examples</a>
     </nav>
   </div>
 </header>
@@ -41,14 +42,22 @@ const docsUrl = import.meta.env.DEV
     height: 4rem;
   }
 
+  .logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo-image {
+    height: 2rem;
+    width: auto;
+  }
+
   .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
     color: #2563eb;
-    text-decoration: none;
-  }
-
-  .logo a {
     text-decoration: none;
   }
 
