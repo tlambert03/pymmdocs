@@ -1,0 +1,706 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="python-developer-page">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1 class="page-title">Python Developer Guide</h1>
+          <p class="page-subtitle">
+            Integrate microscopy control into your Python workflows with pymmcore-plus
+          </p>
+          <div class="time-estimate">
+            <span class="time-badge">⏱️ ~10 minutes</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Installation Section -->
+      <section class="section">
+        <h2 class="section-title">Installation</h2>
+        <p class="section-description">
+          Install the core library for programmatic microscopy control:
+        </p>
+        
+        <div class="code-group">
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-title">Core Package</span>
+            </div>
+            <pre><code># Install the enhanced core
+pip install pymmcore-plus</code></pre>
+          </div>
+          
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-title">With Experiment Schema</span>
+            </div>
+            <pre><code># Add useq for experiment design
+pip install pymmcore-plus useq-schema</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Start Section -->
+      <section class="section">
+        <h2 class="section-title">Quick Start</h2>
+        <p class="section-description">
+          Basic microscopy control in just a few lines:
+        </p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">first_script.py</span>
+          </div>
+          <pre><code><span class="keyword">from</span> <span class="module">pymmcore_plus</span> <span class="keyword">import</span> <span class="function">CMMCorePlus</span>
+
+<span class="comment"># Get the enhanced core instance</span>
+<span class="variable">mmc</span> = <span class="function">CMMCorePlus</span>.<span class="function">instance</span>()
+
+<span class="comment"># Load your hardware configuration</span>
+<span class="variable">mmc</span>.<span class="function">loadSystemConfiguration</span>(<span class="string">'path/to/your/config.cfg'</span>)
+
+<span class="comment"># Take a snapshot</span>
+<span class="variable">mmc</span>.<span class="function">snapImage</span>()
+<span class="variable">image</span> = <span class="variable">mmc</span>.<span class="function">getImage</span>()
+
+<span class="function">print</span>(<span class="string">f"Captured image: &#123;image.shape&#125;"</span>)</code></pre>
+        </div>
+      </section>
+
+      <!-- Key Features Section -->
+      <section class="section">
+        <h2 class="section-title">Key Features</h2>
+        
+        <div class="features-grid">
+          <!-- Modern Event System -->
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon events">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Modern Event System</h3>
+            </div>
+            <p class="feature-description">
+              React to hardware changes and acquisition events with type-safe signal/slot connections.
+            </p>
+            
+            <div class="code-block small">
+              <pre><code><span class="comment"># Connect to image events</span>
+<span class="decorator">@mmc.events.imageSnapped.connect</span>
+<span class="keyword">def</span> <span class="function">process_image</span>(<span class="variable">image</span>, <span class="variable">metadata</span>):
+    <span class="function">print</span>(<span class="string">f"New image: &#123;image.shape&#125;"</span>)
+    <span class="comment"># Process immediately</span></code></pre>
+            </div>
+          </div>
+
+          <!-- Multi-Dimensional Acquisitions -->
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon mda">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <rect x="7" y="7" width="3" height="3"/>
+                  <rect x="14" y="7" width="3" height="3"/>
+                  <rect x="7" y="14" width="3" height="3"/>
+                  <rect x="14" y="14" width="3" height="3"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Multi-Dimensional Acquisitions</h3>
+            </div>
+            <p class="feature-description">
+              Declarative experiment design with automated hardware sequencing for complex protocols.
+            </p>
+            
+            <div class="code-block small">
+              <pre><code><span class="keyword">from</span> <span class="module">useq</span> <span class="keyword">import</span> <span class="function">MDASequence</span>
+
+<span class="variable">sequence</span> = <span class="function">MDASequence</span>(
+    <span class="param">channels</span>=[<span class="string">"DAPI"</span>, <span class="string">"FITC"</span>],
+    <span class="param">z_plan</span>=<span class="param">&#123;"range": 10, "step": 0.5&#125;</span>
+)
+<span class="variable">mmc</span>.<span class="function">run_mda</span>(<span class="variable">sequence</span>)</code></pre>
+            </div>
+          </div>
+
+          <!-- Hardware Control -->
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon hardware">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <circle cx="8" cy="12" r="2"/>
+                  <path d="M14 12h6"/>
+                  <path d="M14 16h6"/>
+                  <path d="M14 8h6"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Enhanced Hardware Control</h3>
+            </div>
+            <p class="feature-description">
+              Extended APIs for device discovery, property management, and state monitoring.
+            </p>
+            
+            <div class="code-block small">
+              <pre><code><span class="comment"># Property management</span>
+<span class="variable">mmc</span>.<span class="function">setProperty</span>(<span class="string">"Camera"</span>, <span class="string">"Exposure"</span>, <span class="number">100</span>)
+
+<span class="comment"># Configuration groups</span>
+<span class="variable">mmc</span>.<span class="function">setConfig</span>(<span class="string">"Channel"</span>, <span class="string">"DAPI"</span>)</code></pre>
+            </div>
+          </div>
+
+          <!-- Custom Engines -->
+          <div class="feature-card">
+            <div class="feature-header">
+              <div class="feature-icon custom">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                </svg>
+              </div>
+              <h3 class="feature-title">Customizable Engines</h3>
+            </div>
+            <p class="feature-description">
+              Build custom acquisition engines for specialized workflows and hardware integration.
+            </p>
+            
+            <div class="code-block small">
+              <pre><code><span class="keyword">class</span> <span class="function">CustomEngine</span>(<span class="function">MDAEngine</span>):
+    <span class="keyword">def</span> <span class="function">exec_event</span>(<span class="variable">self</span>, <span class="variable">event</span>):
+        <span class="comment"># Custom acquisition logic</span>
+        <span class="keyword">return</span> <span class="function">super</span>().<span class="function">exec_event</span>(<span class="variable">event</span>)</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Common Workflows Section -->
+      <section class="section">
+        <h2 class="section-title">Common Workflows</h2>
+        
+        <div class="workflow-grid">
+          <!-- Time Series -->
+          <div class="workflow-card">
+            <h3 class="workflow-title">Time Series Acquisition</h3>
+            <div class="code-block">
+              <pre><code><span class="keyword">from</span> <span class="module">useq</span> <span class="keyword">import</span> <span class="function">MDASequence</span>
+
+<span class="comment"># 24-hour time series, every 5 minutes</span>
+<span class="variable">sequence</span> = <span class="function">MDASequence</span>(
+    <span class="param">time_plan</span>=<span class="param">&#123;
+        "interval": 300,  # 5 minutes
+        "loops": 288      # 24 hours
+    &#125;</span>
+)
+
+<span class="variable">mmc</span>.<span class="function">run_mda</span>(<span class="variable">sequence</span>)</code></pre>
+            </div>
+          </div>
+
+          <!-- Multi-Position -->
+          <div class="workflow-card">
+            <h3 class="workflow-title">Multi-Position Imaging</h3>
+            <div class="code-block">
+              <pre><code><span class="comment"># Define stage positions</span>
+<span class="variable">positions</span> = [
+    <span class="param">&#123;"x": 100, "y": 100, "name": "Site_1"&#125;</span>,
+    <span class="param">&#123;"x": 200, "y": 200, "name": "Site_2"&#125;</span>,
+]
+
+<span class="variable">sequence</span> = <span class="function">MDASequence</span>(
+    <span class="param">stage_positions</span>=<span class="variable">positions</span>,
+    <span class="param">channels</span>=[<span class="string">"DAPI"</span>, <span class="string">"FITC"</span>]
+)
+
+<span class="variable">mmc</span>.<span class="function">run_mda</span>(<span class="variable">sequence</span>)</code></pre>
+            </div>
+          </div>
+
+          <!-- Event-Driven -->
+          <div class="workflow-card">
+            <h3 class="workflow-title">Event-Driven Analysis</h3>
+            <div class="code-block">
+              <pre><code><span class="keyword">import</span> <span class="module">numpy</span> <span class="keyword">as</span> <span class="module">np</span>
+
+<span class="decorator">@mmc.events.imageSnapped.connect</span>
+<span class="keyword">def</span> <span class="function">analyze_image</span>(<span class="variable">image</span>, <span class="variable">metadata</span>):
+    <span class="comment"># Real-time analysis</span>
+    <span class="variable">mean_intensity</span> = <span class="variable">np</span>.<span class="function">mean</span>(<span class="variable">image</span>)
+    
+    <span class="keyword">if</span> <span class="variable">mean_intensity</span> > <span class="number">1000</span>:
+        <span class="function">print</span>(<span class="string">"High signal detected!"</span>)
+        <span class="comment"># Trigger additional imaging</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integration Section -->
+      <section class="section">
+        <h2 class="section-title">Integration Examples</h2>
+        
+        <div class="integration-grid">
+          <!-- NumPy/SciPy -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <h3 class="integration-title">Scientific Computing</h3>
+              <div class="integration-badges">
+                <span class="badge">NumPy</span>
+                <span class="badge">SciPy</span>
+                <span class="badge">scikit-image</span>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="keyword">import</span> <span class="module">numpy</span> <span class="keyword">as</span> <span class="module">np</span>
+<span class="keyword">from</span> <span class="module">skimage</span> <span class="keyword">import</span> <span class="function">filters</span>
+
+<span class="comment"># Real-time image processing</span>
+<span class="decorator">@mmc.events.imageSnapped.connect</span>
+<span class="keyword">def</span> <span class="function">process</span>(<span class="variable">image</span>, <span class="variable">metadata</span>):
+    <span class="variable">filtered</span> = <span class="variable">filters</span>.<span class="function">gaussian</span>(<span class="variable">image</span>, <span class="number">1.0</span>)
+    <span class="comment"># Additional analysis...</span></code></pre>
+            </div>
+          </div>
+
+          <!-- Napari -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <h3 class="integration-title">Visualization</h3>
+              <div class="integration-badges">
+                <span class="badge">Napari</span>
+                <span class="badge">Matplotlib</span>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="keyword">import</span> <span class="module">napari</span>
+
+<span class="comment"># Live view in napari</span>
+<span class="variable">viewer</span> = <span class="variable">napari</span>.<span class="function">Viewer</span>()
+<span class="variable">layer</span> = <span class="variable">viewer</span>.<span class="function">add_image</span>(<span class="variable">np</span>.<span class="function">zeros</span>((<span class="number">512</span>, <span class="number">512</span>)))
+
+<span class="decorator">@mmc.events.imageSnapped.connect</span>
+<span class="keyword">def</span> <span class="function">update_napari</span>(<span class="variable">image</span>, <span class="variable">metadata</span>):
+    <span class="variable">layer</span>.<span class="property">data</span> = <span class="variable">image</span></code></pre>
+            </div>
+          </div>
+
+          <!-- Data Storage -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <h3 class="integration-title">Data Storage</h3>
+              <div class="integration-badges">
+                <span class="badge">OME-Zarr</span>
+                <span class="badge">OME-TIFF</span>
+                <span class="badge">HDF5</span>
+              </div>
+            </div>
+            <div class="code-block">
+              <pre><code><span class="keyword">from</span> <span class="module">pathlib</span> <span class="keyword">import</span> <span class="function">Path</span>
+
+<span class="comment"># Save as OME-TIFF during acquisition</span>
+<span class="variable">save_path</span> = <span class="function">Path</span>(<span class="string">"experiment.ome.tiff"</span>)
+
+<span class="variable">sequence</span> = <span class="function">MDASequence</span>(
+    <span class="param">channels</span>=[<span class="string">"DAPI"</span>, <span class="string">"FITC"</span>],
+    <span class="param">save_dir</span>=<span class="variable">save_path</span>.<span class="property">parent</span>,
+    <span class="param">save_name</span>=<span class="variable">save_path</span>.<span class="property">stem</span>
+)</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Next Steps Section -->
+      <section class="section">
+        <h2 class="section-title">Next Steps</h2>
+        
+        <div class="next-steps-grid">
+          <div class="next-step-card">
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14,2 14,8 20,8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10,9 9,9 8,9"/>
+              </svg>
+            </div>
+            <h3 class="step-title">API Documentation</h3>
+            <p class="step-description">
+              Explore the complete API reference for all methods and events.
+            </p>
+            <a href="http://localhost:8000/api/" class="step-link">Browse API →</a>
+          </div>
+
+          <div class="next-step-card">
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Example Scripts</h3>
+            <p class="step-description">
+              Ready-to-run examples for common microscopy workflows.
+            </p>
+            <a href="http://localhost:8000/examples/" class="step-link">View Examples →</a>
+          </div>
+
+          <div class="next-step-card">
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <circle cx="12" cy="16" r="1"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3 class="step-title">Advanced Topics</h3>
+            <p class="step-description">
+              Custom engines, hardware integration, and performance optimization.
+            </p>
+            <a href="http://localhost:8000/guides/" class="step-link">Learn More →</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .python-developer-page {
+    min-height: 100vh;
+    background: #ffffff;
+  }
+
+  .hero-section {
+    padding: 4rem 0 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .time-estimate {
+    display: flex;
+    justify-content: center;
+  }
+
+  .time-badge {
+    background: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .code-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .code-block {
+    background: #1e293b;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .code-block.small {
+    margin-top: 1rem;
+  }
+
+  .code-header {
+    background: #334155;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #475569;
+  }
+
+  .code-title {
+    color: #e2e8f0;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .code-block pre {
+    margin: 0;
+    padding: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .code-block code {
+    color: #e2e8f0;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Syntax highlighting */
+  .keyword { color: #c084fc; }
+  .module { color: #60a5fa; }
+  .function { color: #fbbf24; }
+  .param { color: #f87171; }
+  .variable { color: #34d399; }
+  .comment { color: #6b7280; }
+  .decorator { color: #fb7185; }
+  .string { color: #a7f3d0; }
+  .number { color: #fde68a; }
+  .property { color: #fbbf24; }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .feature-icon.events {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .feature-icon.mda {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  }
+
+  .feature-icon.hardware {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  }
+
+  .feature-icon.custom {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+  }
+
+  .feature-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+
+  .workflow-card {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .workflow-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .integration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .integration-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .integration-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .integration-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .integration-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: #e2e8f0;
+    color: #64748b;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .next-step-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .next-step-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .step-icon {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .step-link {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .step-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .section {
+      padding: 2rem 0;
+    }
+
+    .code-group {
+      grid-template-columns: 1fr;
+    }
+
+    .features-grid,
+    .workflow-grid,
+    .integration-grid,
+    .next-steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-card,
+    .workflow-card,
+    .integration-card {
+      padding: 1.5rem;
+    }
+  }
+</style>
