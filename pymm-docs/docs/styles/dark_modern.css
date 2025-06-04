@@ -1,0 +1,227 @@
+/* VSCode Dark+ Theme for Code Highlighting */
+
+/* Base code styling */
+code.md-code__content {
+  /* VSCode Dark Theme - Base colors */
+  --md-code-fg-color: #d4d4d4;
+  --md-code-bg-color: #1e1e1e;
+
+  /* Base code highlighting syntax colors */
+  --md-code-hl-number-color: #b5cea8;
+  --md-code-hl-special-color: #569cd6;
+  --md-code-hl-function-color: #dcdcaa;
+  --md-code-hl-constant-color: #4ec9b0;
+  --md-code-hl-keyword-color: #569cd6;
+  --md-code-hl-string-color: #ce9178;
+  --md-code-hl-name-color: #9cdcfe;
+  --md-code-hl-operator-color: #d4d4d4;
+  --md-code-hl-punctuation-color: #d4d4d4;
+  --md-code-hl-comment-color: #6a9955;
+  --md-code-hl-generic-color: #d4d4d4;
+  --md-code-hl-variable-color: #9cdcfe;
+}
+
+/* Direct element overrides for accurate VSCode Dark+ theme matching */
+
+/* ----------------------
+   Operators
+   ---------------------- */
+/* Operators (.o) and Word Operators (.ow) */
+.md-typeset .highlight :is(.o, .ow) {
+  color: #d4d4d4;
+}
+
+/* ----------------------
+   Punctuation
+   ---------------------- */
+.md-typeset .highlight .p {
+  color: #d4d4d4;
+}
+
+/* ----------------------
+   String Literals
+   ---------------------- */
+/* Regular strings, all forms */
+.md-typeset .highlight :is(.cpf, .l, .s, .sb, .sc, .s2, .si, .s1, .ss) {
+  color: #ce9178;
+}
+
+/* Special string forms */
+.md-typeset .highlight :is(.cp, .se, .sh, .sr, .sx) {
+  color: #ce9178;
+}
+
+/* String escapes get a different color in VSCode */
+.md-typeset .highlight .se {
+  color: #d7ba7d;
+}
+
+/* ----------------------
+   Numbers
+   ---------------------- */
+/* All number types */
+.md-typeset .highlight :is(.m, .mb, .mf, .mh, .mi, .il, .mo) {
+  color: #b5cea8;
+}
+
+/* ----------------------
+   Keywords
+   ---------------------- */
+/* Regular keywords */
+.md-typeset .highlight :is(.k, .kd, .kn, .kp, .kr, .kt) {
+  color: #569cd6;
+}
+
+/* Control flow keywords are different in VSCode */
+.md-typeset
+  .highlight
+  :is(
+    .k[href$="if"],
+    .k[href$="for"],
+    .k[href$="while"],
+    .k[href$="return"],
+    .k[href$="else"]
+  ) {
+  color: #c586c0;
+}
+
+/* ----------------------
+   Constants & Names
+   ---------------------- */
+/* Keyword constants (True, False, None) */
+.md-typeset .highlight .kc {
+  color: #569cd6;
+}
+
+/* Regular names */
+.md-typeset .highlight .n {
+  color: #9cdcfe;
+}
+
+/* ----------------------
+   Built-ins
+   ---------------------- */
+/* Built-in names, constants and pseudo */
+.md-typeset .highlight :is(.no, .nb) {
+  color: #4ec9b0;
+}
+
+/* Self parameter (Python) */
+.md-typeset .highlight .bp {
+  color: #569cd6;
+}
+
+/* ----------------------
+   Classes & Functions
+   ---------------------- */
+/* Class names */
+.md-typeset .highlight .nc {
+  color: #4ec9b0;
+}
+
+/* Exception names */
+.md-typeset .highlight .ne {
+  color: #4ec9b0;
+}
+
+/* Function names */
+.md-typeset .highlight .nf {
+  color: #dcdcaa;
+}
+
+/* Namespaces, imports */
+.md-typeset .highlight .nn {
+  color: #4ec9b0;
+}
+
+/* Magic (dunder) methods */
+.md-typeset .highlight .fm {
+  color: #dcdcaa;
+}
+
+/* ----------------------
+   Decorators & Entities
+   ---------------------- */
+/* Decorators */
+.md-typeset .highlight .nd {
+  color: #c586c0;
+}
+
+/* Entity name */
+.md-typeset .highlight .ni {
+  color: #9cdcfe;
+}
+
+/* Label name */
+.md-typeset .highlight .nl {
+  color: #c8c8c8;
+}
+
+/* HTML/XML tags */
+.md-typeset .highlight .nt {
+  color: #569cd6;
+}
+
+/* ----------------------
+   Comments & Docstrings
+   ---------------------- */
+/* All comment types */
+.md-typeset .highlight :is(.c, .cm, .c1, .ch, .cs) {
+  color: #6b9955ac;
+  font-weight: 500;
+}
+
+/* Docstrings */
+.md-typeset .highlight .sd {
+  color: #ce9278;
+  font-weight: 600;
+}
+
+/* ----------------------
+   Variables
+   ---------------------- */
+/* Variable names */
+.md-typeset .highlight :is(.na, .nv, .vc, .vg, .vi) {
+  color: #9cdcfe;
+}
+
+/* Class variables */
+.md-typeset .highlight .vc {
+  color: #9cdcfe;
+}
+
+/* ----------------------
+   Generic Elements
+   ---------------------- */
+.md-typeset .highlight :is(.ge, .gr, .gh, .go, .gp, .gs, .gu, .gt) {
+  color: #d4d4d4;
+}
+
+/* Emphasized text */
+.md-typeset .highlight .ge {
+  font-style: italic;
+}
+
+/* Strong text */
+.md-typeset .highlight .gs {
+  font-weight: bold;
+}
+
+/* Errors */
+.md-typeset .highlight .gr {
+  color: #f44747;
+}
+
+/* Diff highlighting */
+.md-typeset .highlight .gd {
+  background-color: rgba(244, 71, 71, 0.25);
+}
+
+.md-typeset .highlight .gi {
+  background-color: rgba(57, 186, 70, 0.25);
+}
+
+/* Syntax error */
+.md-typeset .highlight .err {
+  color: #f44747;
+}

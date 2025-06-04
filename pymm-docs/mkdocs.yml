@@ -1,38 +1,131 @@
-site_name: Python Micro-Manager Ecosystem
+site_name: pymm
 site_description: Complete Python-based microscopy control without Java dependencies
+site_url: https://pymmcore-plus.github.io/
+repo_url: https://github.com/pymmcore-plus
+repo_name: pymmcore-plus
+watch: ["docs"]
 
 theme:
   name: material
+  logo: assets/logo_trans.png
+  font: false
+  icon:
+    repo: fontawesome/brands/github
   palette:
-    primary: 'blue'
-    accent: 'light blue'
-  features:
-    - content.code.copy
-    - content.tabs.link
-    - navigation.sections
-    - navigation.tabs
-    - navigation.top
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: octicons/moon-24
+        name: Switch to dark mode
 
-plugins:
-  - search
-  - mkdocstrings
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: octicons/sun-24
+        name: Switch to light mode
+
+  features:
+    #- navigation.tabs
+    - content.code.copy
+    - content.code.annotate
+    # - content.action.edit
+    - navigation.footer  # next/previous links in footer
+    - navigation.content_next # next/previous links bottom of content
+    # - navigation.tracking
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    - navigation.icons
+    - content.tabs.link
 
 markdown_extensions:
+  #- pymdownx.extra # markdown in html (includes commented extensions below)
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.superfences
   - admonition
   - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - toc:
+      permalink: "#"
 
-nav:
-  - Home: index.md
-  - Quickstart: quickstart.md
-  - Ecosystem Overview: pymmcore-plus-ecosystem.md
+plugins:
+  - search
+  - tags
+  - autorefs:
+      resolve_closest: true
+  - spellcheck:
+      backends:
+        - codespell:
+            dictionaries: [clear]
+  - api-autonav:
+      modules:
+        # - submodules/pymmcore-gui/src/pymmcore_gui
+        - submodules/pymmcore-plus/src/pymmcore_plus
+        # - submodules/pymmcore-widgets/src/pymmcore_widgets
+        - submodules/useq-schema/src/useq
+      exclude:
+        - useq.pycromanager
+  - mkdocstrings:
+      handlers:
+        python:
+          inventories:
+            - https://docs.python.org/3/objects.inv
+            - https://numpy.org/doc/stable/objects.inv
+            - https://docs.pydantic.dev/latest/objects.inv
+            - https://cmap-docs.readthedocs.io/objects.inv
+            - https://psygnal.readthedocs.io/en/latest/objects.inv
+          options:
+            docstring_section_style: list # or "table"
+            docstring_style: "numpy"
+            filters: ["!^_"]
+            heading_level: 1
+            merge_init_into_class: true
+            parameter_headings: true
+            separate_signature: true
+            show_root_heading: true
+            show_signature_annotations: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            summary: true
+
+extra_javascript:
+  - javascripts/termynal.js
+
+extra_css:
+  # - styles/extra.css
+  - styles/termynal.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pymmcore-plus
