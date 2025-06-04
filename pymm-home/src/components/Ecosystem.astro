@@ -1,0 +1,298 @@
+---
+---
+
+<section class="ecosystem">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">The pymmcore-plus Ecosystem</h2>
+      <p class="section-description">
+        Four integrated packages that work together to provide complete microscopy control
+      </p>
+    </div>
+    
+    <div class="ecosystem-grid">
+      <div class="package">
+        <div class="package-header">
+          <div class="package-icon useq">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 17H7A5 5 0 0 1 7 7h2"/>
+              <path d="M15 7h2a5 5 0 1 1 0 10h-2"/>
+              <path d="M8 12h8"/>
+            </svg>
+          </div>
+          <h3 class="package-title">useq-schema</h3>
+          <span class="package-layer">Foundation Layer</span>
+        </div>
+        <p class="package-description">
+          Implementation-agnostic schema for describing multi-dimensional microscopy experiments.
+          Declarative sequences with JSON/YAML serialization.
+        </p>
+      </div>
+
+      <div class="package">
+        <div class="package-header">
+          <div class="package-icon core">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v6m0 6v6"/>
+              <path d="m9 9 3-3 3 3"/>
+              <path d="m9 15 3 3 3-3"/>
+            </svg>
+          </div>
+          <h3 class="package-title">pymmcore-plus</h3>
+          <span class="package-layer">Core Interface</span>
+        </div>
+        <p class="package-description">
+          Enhanced drop-in replacement for pymmcore.CMMCore with modern event system,
+          acquisition engine, and extended APIs.
+        </p>
+      </div>
+
+      <div class="package">
+        <div class="package-header">
+          <div class="package-icon widgets">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          <h3 class="package-title">pymmcore-widgets</h3>
+          <span class="package-layer">GUI Components</span>
+        </div>
+        <p class="package-description">
+          Collection of Qt widgets for building microscopy UIs. Property browsers,
+          MDA designers, camera controls, and more.
+        </p>
+      </div>
+
+      <div class="package">
+        <div class="package-header">
+          <div class="package-icon gui">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M10 4v4"/>
+              <path d="M2 8h20"/>
+              <path d="M6 4v4"/>
+            </svg>
+          </div>
+          <h3 class="package-title">pymmcore-gui</h3>
+          <span class="package-layer">Complete Application</span>
+        </div>
+        <p class="package-description">
+          Ready-to-use GUI application with dockable interface, integrated viewer,
+          and all ecosystem components pre-configured.
+        </p>
+      </div>
+    </div>
+
+    <div class="integration-flow">
+      <h3 class="flow-title">How It All Works Together</h3>
+      <div class="flow-diagram">
+        <div class="flow-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Define Experiments</h4>
+            <p>Use useq-schema to describe your multi-dimensional acquisitions</p>
+          </div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Control Hardware</h4>
+            <p>pymmcore-plus executes sequences with enhanced event system</p>
+          </div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Build Interfaces</h4>
+            <p>Create custom UIs with pymmcore-widgets or use the complete GUI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ecosystem {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .ecosystem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .package {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .package:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .package-header {
+    margin-bottom: 1rem;
+  }
+
+  .package-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .package-icon.useq {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .package-icon.core {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  }
+
+  .package-icon.widgets {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  }
+
+  .package-icon.gui {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  }
+
+  .package-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+  }
+
+  .package-layer {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .package-description {
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  .integration-flow {
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .flow-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2rem;
+  }
+
+  .flow-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0.75rem;
+    min-width: 200px;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.25rem;
+  }
+
+  .step-content p {
+    font-size: 0.75rem;
+    color: #64748b;
+    line-height: 1.4;
+  }
+
+  .flow-arrow {
+    font-size: 1.5rem;
+    color: #2563eb;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .ecosystem-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .flow-diagram {
+      flex-direction: column;
+    }
+    
+    .flow-arrow {
+      transform: rotate(90deg);
+    }
+    
+    .integration-flow {
+      padding: 2rem 1rem;
+    }
+  }
+</style>

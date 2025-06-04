@@ -5,12 +5,12 @@
   <div class="container">
     <div class="hero-content">
       <h1 class="hero-title">
-        Modern Python
-        <span class="gradient-text">Memory Management</span>
+        Python<br>
+        <span class="gradient-text">Micro-Manager</span>
       </h1>
       <p class="hero-description">
-        Efficient, safe, and intuitive memory management for Python applications. 
-        Build faster, more reliable software with pymm's advanced memory optimization tools.
+        Pure Python microscopy control with the pymmcore-plus ecosystem. 
+        Four tightly integrated packages for modern microscopy applications without Java dependencies.
       </p>
       <div class="hero-actions">
         <a href="/docs" class="button button-primary">Get Started</a>
@@ -23,16 +23,16 @@
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-number">10x</span>
-          <span class="stat-label">Faster</span>
+          <span class="stat-number">4</span>
+          <span class="stat-label">Packages</span>
         </div>
         <div class="stat">
-          <span class="stat-number">99.9%</span>
-          <span class="stat-label">Memory Safe</span>
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Pure Python</span>
         </div>
         <div class="stat">
           <span class="stat-number">0</span>
-          <span class="stat-label">Dependencies</span>
+          <span class="stat-label">Java Required</span>
         </div>
       </div>
     </div>
@@ -44,20 +44,31 @@
             <span class="dot yellow"></span>
             <span class="dot green"></span>
           </div>
-          <span class="code-title">memory_manager.py</span>
+          <span class="code-title">microscopy_control.py</span>
         </div>
         <div class="code-content">
-          <pre><code><span class="keyword">import</span> <span class="module">pymm</span>
+          <pre><code><span class="keyword">from</span> <span class="module">pymmcore_plus</span> <span class="keyword">import</span> <span class="function">CMMCorePlus</span>
+<span class="keyword">from</span> <span class="module">useq</span> <span class="keyword">import</span> <span class="function">MDASequence</span>
+<span class="keyword">import</span> <span class="module">numpy</span> <span class="keyword">as</span> <span class="variable">np</span>
 
-<span class="decorator">@pymm.optimize</span>
-<span class="keyword">def</span> <span class="function">process_data</span>(<span class="param">data</span>):
-    <span class="comment"># Automatic memory optimization</span>
-    <span class="keyword">with</span> <span class="module">pymm</span>.<span class="function">managed_context</span>():
-        <span class="variable">result</span> = <span class="function">heavy_computation</span>(<span class="param">data</span>)
-        <span class="keyword">return</span> <span class="variable">result</span>
+<span class="comment"># Create enhanced core instance</span>
+<span class="variable">mmc</span> = <span class="function">CMMCorePlus</span>.<span class="function">instance</span>()
+<span class="variable">mmc</span>.<span class="function">loadSystemConfiguration</span>()
 
-<span class="comment"># Zero-copy data transfers</span>
-<span class="variable">optimized_data</span> = <span class="module">pymm</span>.<span class="function">zero_copy</span>(<span class="param">large_array</span>)</code></pre>
+<span class="comment"># Define event callback</span>
+<span class="decorator">@mmc.events.frameReady.connect</span>
+<span class="keyword">def</span> <span class="function">on_image_captured</span>(<span class="param">data</span>: <span class="variable">np</span>.<span class="variable">ndarray</span>, <span class="param">event</span>, <span class="param">metadata</span>: <span class="variable">dict</span>):
+    <span class="function">print</span>(<span class="string">"Event captured with shape"</span>, <span class="variable">data</span>.<span class="variable">shape</span>)
+
+<span class="comment"># Define multi-dimensional experiment</span>
+<span class="variable">sequence</span> = <span class="function">MDASequence</span>(
+    <span class="param">channels</span>=[<span class="string">"DAPI"</span>, <span class="string">"FITC"</span>, <span class="string">"Cy3"</span>],
+    <span class="param">z_plan</span>=<span class="param">{`{"range": 10, "step": 0.5}`}</span>,
+    <span class="param">time_plan</span>=<span class="param">{`{"interval": 300, "loops": 24}`}</span>
+)
+
+<span class="comment"># Run acquisition with hardware sequencing</span>
+<span class="variable">mmc</span>.<span class="function">run_mda</span>(<span class="variable">sequence</span>)</code></pre>
         </div>
       </div>
     </div>
