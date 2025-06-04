@@ -1,0 +1,575 @@
+---
+---
+
+<section class="quickstart-choice">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Getting Started</h2>
+      <p class="section-description">
+        Select the appropriate installation path based on your requirements
+      </p>
+    </div>
+    
+    <div class="choice-grid">
+      <!-- GUI Application User -->
+      <div class="choice-card" data-choice="gui">
+        <div class="choice-header">
+          <div class="choice-icon gui">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M10 4v4"/>
+              <path d="M2 8h20"/>
+              <path d="M6 4v4"/>
+            </svg>
+          </div>
+          <div class="choice-meta">
+            <h3 class="choice-title">GUI Application User</h3>
+            <span class="choice-time">~5 minutes</span>
+          </div>
+        </div>
+        <p class="choice-description">
+          Complete microscopy application with graphical user interface. Requires no programming knowledge.
+        </p>
+        <div class="choice-benefits">
+          <span class="benefit">• No coding required</span>
+          <span class="benefit">• Full feature set</span>
+          <span class="benefit">• Quick setup</span>
+        </div>
+        <button class="choice-button">Install Application</button>
+      </div>
+
+      <!-- Python Developer -->
+      <div class="choice-card" data-choice="python">
+        <div class="choice-header">
+          <div class="choice-icon python">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16l-3-9m3 9l3-9"/>
+            </svg>
+          </div>
+          <div class="choice-meta">
+            <h3 class="choice-title">Python Developer</h3>
+            <span class="choice-time">~10 minutes</span>
+          </div>
+        </div>
+        <p class="choice-description">
+          Python package for programmatic control and automation. Integrates with existing Python workflows.
+        </p>
+        <div class="choice-benefits">
+          <span class="benefit">• Complete Python API</span>
+          <span class="benefit">• Workflow integration</span>
+          <span class="benefit">• Custom interfaces</span>
+        </div>
+        <button class="choice-button">Install Package</button>
+      </div>
+
+      <!-- Deep Developer -->
+      <div class="choice-card" data-choice="deep">
+        <div class="choice-header">
+          <div class="choice-icon deep">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+            </svg>
+          </div>
+          <div class="choice-meta">
+            <h3 class="choice-title">Deep Developer</h3>
+            <span class="choice-time">~30 minutes</span>
+          </div>
+        </div>
+        <p class="choice-description">
+          Complete ecosystem documentation and architecture overview. For advanced development and contributions.
+        </p>
+        <div class="choice-benefits">
+          <span class="benefit">• Full architecture</span>
+          <span class="benefit">• Advanced examples</span>
+          <span class="benefit">• Development guide</span>
+        </div>
+        <button class="choice-button">View Documentation</button>
+      </div>
+    </div>
+
+    <!-- Expanded Content Areas -->
+    <div class="expanded-content" id="gui-content">
+      <div class="content-header">
+        <h3>GUI Application Installation</h3>
+        <button class="close-btn" onclick="closeExpandedContent()">×</button>
+      </div>
+      <div class="content-body">
+        <div class="install-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Install the Application</h4>
+              <div class="code-block">
+                <code>pip install pymmcore-gui</code>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Launch and Configure</h4>
+              <div class="code-block">
+                <code>pymm</code>
+              </div>
+              <p>Load your Micro-Manager configuration file or use the Hardware Configuration Wizard.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Start Imaging</h4>
+              <p>Click "Live" to start camera streaming, use the MDA Designer for complex acquisitions, and explore the dockable interface.</p>
+            </div>
+          </div>
+        </div>
+        <div class="next-steps">
+          <h4>What's Included:</h4>
+          <ul>
+            <li>Device Property Browser - Control all hardware settings</li>
+            <li>Live View - Real-time camera display</li>
+            <li>MDA Designer - Multi-dimensional acquisition planning</li>
+            <li>Image Viewer - Built-in viewer with analysis tools</li>
+            <li>Stage Control - XY and Z positioning</li>
+          </ul>
+          <a href="http://localhost:8000/quickstart/#path-1-gui-application-user" class="learn-more-btn">Full GUI Guide →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="expanded-content" id="python-content">
+      <div class="content-header">
+        <h3>Python Package Installation</h3>
+        <button class="close-btn" onclick="closeExpandedContent()">×</button>
+      </div>
+      <div class="content-body">
+        <div class="install-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Install the Core Library</h4>
+              <div class="code-block">
+                <code>pip install pymmcore-plus useq-schema</code>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Your First Script</h4>
+              <div class="code-block">
+                <code>from pymmcore_plus import CMMCorePlus<br>
+mmc = CMMCorePlus.instance()<br>
+mmc.loadSystemConfiguration('config.cfg')<br>
+mmc.snapImage()  # Take a picture!</code>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Add Events and Automation</h4>
+              <div class="code-block">
+                <code>@mmc.events.imageSnapped.connect<br>
+def process_image(image, metadata):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"New image: &#123;image.shape&#125;")</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="next-steps">
+          <h4>Key Features:</h4>
+          <ul>
+            <li>Modern event system for real-time processing</li>
+            <li>Multi-dimensional acquisition sequences</li>
+            <li>Context management for safe hardware control</li>
+            <li>Easy integration with NumPy, SciPy, napari</li>
+            <li>Pre-built Qt widgets for custom GUIs</li>
+          </ul>
+          <a href="http://localhost:8000/quickstart/#path-2-python-developer" class="learn-more-btn">Full Python Guide →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="expanded-content" id="deep-content">
+      <div class="content-header">
+        <h3>Complete Ecosystem Setup</h3>
+        <button class="close-btn" onclick="closeExpandedContent()">×</button>
+      </div>
+      <div class="content-body">
+        <div class="install-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Install Everything</h4>
+              <div class="code-block">
+                <code>pip install pymmcore-plus useq-schema<br>
+pip install pymmcore-widgets pymmcore-gui</code>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Understand the Architecture</h4>
+              <p>Four integrated packages: useq-schema (foundation) → pymmcore-plus (core) → pymmcore-widgets (GUI) → pymmcore-gui (app)</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Start Customizing</h4>
+              <div class="code-block">
+                <code># Custom acquisition engines<br>
+# Device adapters<br>
+# GUI plugins<br>
+# Advanced integrations</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="next-steps">
+          <h4>Advanced Capabilities:</h4>
+          <ul>
+            <li>Custom acquisition engines and device adapters</li>
+            <li>Plugin development for the GUI application</li>
+            <li>Real-time analysis pipelines</li>
+            <li>Integration with advanced imaging frameworks</li>
+            <li>Contributing to the open-source ecosystem</li>
+          </ul>
+          <a href="http://localhost:8000/quickstart/#path-3-deep-developer" class="learn-more-btn">Full Developer Guide →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function showExpandedContent(choice) {
+    // Hide all expanded content
+    document.querySelectorAll('.expanded-content').forEach(content => {
+      content.style.display = 'none';
+    });
+    
+    // Show selected content
+    const content = document.getElementById(choice + '-content');
+    if (content) {
+      content.style.display = 'block';
+      content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function closeExpandedContent() {
+    document.querySelectorAll('.expanded-content').forEach(content => {
+      content.style.display = 'none';
+    });
+  }
+
+  // Add click handlers to choice cards
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.choice-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const choice = this.getAttribute('data-choice');
+        showExpandedContent(choice);
+      });
+    });
+  });
+</script>
+
+<style>
+  .quickstart-choice {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .choice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .choice-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .choice-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    border-color: #2563eb;
+  }
+
+  .choice-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .choice-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .choice-icon.gui {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  }
+
+  .choice-icon.python {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  }
+
+  .choice-icon.deep {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  }
+
+  .choice-meta {
+    flex: 1;
+  }
+
+  .choice-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+  }
+
+  .choice-time {
+    font-size: 0.875rem;
+    color: #2563eb;
+    font-weight: 600;
+    background: #eff6ff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .choice-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .choice-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefit {
+    font-size: 0.875rem;
+    color: #059669;
+    font-weight: 500;
+  }
+
+  .choice-button {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .choice-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+  }
+
+  .expanded-content {
+    display: none;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .content-header {
+    background: #2563eb;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: background 0.2s;
+  }
+
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .content-body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .install-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .step-content p {
+    margin: 0.5rem 0 0 0;
+    color: #64748b;
+    line-height: 1.5;
+  }
+
+  .code-block {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+  }
+
+  .next-steps h4 {
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .next-steps ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .next-steps li {
+    padding: 0.5rem 0;
+    color: #64748b;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .next-steps li:before {
+    content: "→";
+    color: #2563eb;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  .learn-more-btn {
+    display: inline-block;
+    background: #f8fafc;
+    color: #2563eb;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+  }
+
+  .learn-more-btn:hover {
+    background: #eff6ff;
+    border-color: #2563eb;
+  }
+
+  @media (max-width: 1024px) {
+    .choice-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .content-body {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .quickstart-choice {
+      padding: 4rem 0;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .content-body {
+      padding: 1.5rem;
+    }
+  }
+</style>
