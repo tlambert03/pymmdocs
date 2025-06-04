@@ -1,12 +1,16 @@
 [submodule "pymm-docs/submodules/pymmcore-plus"]
 	path = pymm-docs/submodules/pymmcore-plus
 	url = https://github.com/pymmcore-plus/pymmcore-plus
+	branch = mono-docs
 [submodule "pymm-docs/submodules/pymmcore-widgets"]
 	path = pymm-docs/submodules/pymmcore-widgets
 	url = https://github.com/pymmcore-plus/pymmcore-widgets
+	branch = mono-docs
 [submodule "pymm-docs/submodules/useq-schema"]
 	path = pymm-docs/submodules/useq-schema
 	url = https://github.com/pymmcore-plus/useq-schema
+	branch = mono-docs
 [submodule "pymm-docs/submodules/pymmcore-gui"]
 	path = pymm-docs/submodules/pymmcore-gui
 	url = https://github.com/pymmcore-plus/pymmcore-gui
+	branch = mono-docs
