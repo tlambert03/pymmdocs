@@ -49,16 +49,10 @@
         <div class="code-content">
           <pre><code><span class="keyword">from</span> <span class="module">pymmcore_plus</span> <span class="keyword">import</span> <span class="function">CMMCorePlus</span>
 <span class="keyword">from</span> <span class="module">useq</span> <span class="keyword">import</span> <span class="function">MDASequence</span>
-<span class="keyword">import</span> <span class="module">numpy</span> <span class="keyword">as</span> <span class="variable">np</span>
 
 <span class="comment"># Create enhanced core instance</span>
 <span class="variable">mmc</span> = <span class="function">CMMCorePlus</span>.<span class="function">instance</span>()
-<span class="variable">mmc</span>.<span class="function">loadSystemConfiguration</span>()
-
-<span class="comment"># Define event callback</span>
-<span class="decorator">@mmc.events.frameReady.connect</span>
-<span class="keyword">def</span> <span class="function">on_image_captured</span>(<span class="param">data</span>: <span class="variable">np</span>.<span class="variable">ndarray</span>, <span class="param">event</span>, <span class="param">metadata</span>: <span class="variable">dict</span>):
-    <span class="function">print</span>(<span class="string">"Event captured with shape"</span>, <span class="variable">data</span>.<span class="variable">shape</span>)
+<span class="variable">mmc</span>.<span class="function">loadSystemConfiguration</span>(...)
 
 <span class="comment"># Define multi-dimensional experiment</span>
 <span class="variable">sequence</span> = <span class="function">MDASequence</span>(
@@ -67,7 +61,7 @@
     <span class="param">time_plan</span>=<span class="param">{`{"interval": 300, "loops": 24}`}</span>
 )
 
-<span class="comment"># Run acquisition with hardware sequencing</span>
+<span class="comment"># Run acquisition</span>
 <span class="variable">mmc</span>.<span class="function">run_mda</span>(<span class="variable">sequence</span>)</code></pre>
         </div>
       </div>
