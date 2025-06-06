@@ -93,9 +93,6 @@ markdown_extensions:
 plugins:
   - search
   - literate-nav # autegenerate nav from _gen_widgets
-  - gen-files:
-      scripts:
-        - submodules/pymmcore-widgets/docs/_gen_widget_pages.py
   - monorepo
   - tags
   - autorefs:
