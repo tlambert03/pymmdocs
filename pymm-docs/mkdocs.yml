@@ -104,9 +104,9 @@ plugins:
   - api-autonav:
       modules:
         - submodules/useq-schema/src/useq
-        - submodules/pymmcore-plus/src/pymmcore_plus
+        # - submodules/pymmcore-plus/src/pymmcore_plus
         - submodules/pymmcore-widgets/src/pymmcore_widgets
-        - submodules/pymmcore-gui/src/pymmcore_gui
+        # - submodules/pymmcore-gui/src/pymmcore_gui
       exclude:
         - useq.pycromanager
   - mkdocstrings:
