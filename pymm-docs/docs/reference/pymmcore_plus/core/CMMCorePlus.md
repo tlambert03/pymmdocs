@@ -1,7 +1,5 @@
 # pymmcore_plus.core.CMMCorePlus
 
-{{ CMMCorePlus_API_Table }}
-
 ::: pymmcore_plus.core.CMMCorePlus
     options:
       preload_modules: [pymmcore]
