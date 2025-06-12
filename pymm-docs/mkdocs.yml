@@ -4,16 +4,22 @@ site_url: https://pymmcore-plus.github.io/
 repo_url: https://github.com/pymmcore-plus
 repo_name: pymmcore-plus
 watch: ["docs"]
+validation:
+  absolute_links: ignore  # easier for images at /images/...
 
 nav:
-  - Home: 
-    - index.md
-    - Tags: tags.md
-  - "useq-schema": "!include ./submodules/useq-schema/mkdocs.yml"
-  - "pymmcore-plus": "!include ./submodules/pymmcore-plus/mkdocs.yml"
+  - Home:
+      - index.md
+      - Quickstart:
+          - quickstart/index.md
+          - quickstart/1_gui.md
+          - quickstart/2_library.md
+          - quickstart/3_developer.md
+      - Tags: tags.md
+  # - "useq-schema": "!include ./submodules/useq-schema/mkdocs.yml"
+  # - "pymmcore-plus": "!include ./submodules/pymmcore-plus/mkdocs.yml"
   - "pymmcore-widgets": "!include ./submodules/pymmcore-widgets/mkdocs.yml"
-  - "pymmcore-gui": "!include ./submodules/pymmcore-gui/mkdocs.yml"
-
+  # - "pymmcore-gui": "!include ./submodules/pymmcore-gui/mkdocs.yml"
 
 theme:
   name: material
@@ -26,10 +32,13 @@ theme:
     - content.code.copy
     - content.tabs.link
     - navigation.content_next # next/previous links bottom of content
-    - navigation.footer  # next/previous links in footer
+    - navigation.footer # next/previous links in footer
     - navigation.icons
     - navigation.indexes
     - navigation.tabs
+    - navigation.top  # back to top button
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-pruning
+    - navigation.prune
     - search.highlight
     - search.share
     - search.suggest
@@ -53,8 +62,6 @@ theme:
       toggle:
         icon: octicons/sun-24
         name: Switch to light mode
-
-
 
 markdown_extensions:
   #- pymdownx.extra # markdown in html (includes commented extensions below)
@@ -92,7 +99,6 @@ markdown_extensions:
 
 plugins:
   - search
-  - literate-nav # autegenerate nav from _gen_widgets
   - monorepo
   - tags
   - autorefs:
@@ -101,14 +107,14 @@ plugins:
       backends:
         - codespell:
             dictionaries: [clear]
-  - api-autonav:
-      modules:
-        - submodules/useq-schema/src/useq
-        # - submodules/pymmcore-plus/src/pymmcore_plus
-        - submodules/pymmcore-widgets/src/pymmcore_widgets
-        # - submodules/pymmcore-gui/src/pymmcore_gui
-      exclude:
-        - useq.pycromanager
+  # - api-autonav:
+  # modules:
+  # - submodules/useq-schema/src/useq
+  # - submodules/pymmcore-plus/src/pymmcore_plus
+  # - submodules/pymmcore-widgets/src/pymmcore_widgets
+  # - submodules/pymmcore-gui/src/pymmcore_gui
+  # exclude:
+  # - useq.pycromanager
   - mkdocstrings:
       handlers:
         python:
@@ -118,11 +124,13 @@ plugins:
             - https://docs.pydantic.dev/latest/objects.inv
             - https://cmap-docs.readthedocs.io/objects.inv
             - https://psygnal.readthedocs.io/en/latest/objects.inv
+            - https://pymmcore-plus.github.io/pymmcore-plus/objects.inv # remove later
+            - https://pymmcore-plus.github.io/useq-schema/objects.inv# remove later
           options:
             docstring_section_style: list # or "table"
             docstring_style: "numpy"
             filters: ["!^_"]
-            heading_level: 1
+            heading_level: 2
             merge_init_into_class: true
             parameter_headings: true
             separate_signature: true
@@ -134,7 +142,8 @@ plugins:
 
 hooks:
   - submodules/pymmcore-widgets/docs/_hooks.py
-  
+  - docs/_global_hooks.py
+
 extra_javascript:
   - javascripts/termynal.js
 

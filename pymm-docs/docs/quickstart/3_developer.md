@@ -1,4 +1,4 @@
-# 3. For Developers
+# Quickstart for Developers
 
 Master the full ecosystem architecture and customization.
 
@@ -230,10 +230,10 @@ class AnalysisPipeline:
 
 ## Next Steps
 
-- **[Architecture Deep Dive](architecture.md)** - Detailed system design
-- **[API Documentation](api/)** - Complete reference for all packages
-- **[Contributing Guide](contributing.md)** - How to contribute to the ecosystem
-- **[Plugin Development](plugins.md)** - Building extensions and plugins
+- **Architecture Deep Dive** - Detailed system design
+- **API Documentation** - Complete reference for all packages
+- **Contributing Guide** - How to contribute to the ecosystem
+- **Plugin Development** - Building extensions and plugins
 
 ---
 
@@ -243,21 +243,21 @@ No matter which path you chose, here are some common next steps:
 
 ## Hardware Setup
 
-- **[Supported Hardware](hardware/supported.md)** - Compatible devices and drivers
-- **[Configuration Guide](hardware/config.md)** - Setting up your microscope
-- **[Troubleshooting](hardware/troubleshooting.md)** - Common issues and solutions
+- **Supported Hardware** - Compatible devices and drivers
+- **Configuration Guide** - Setting up your microscope
+- **Troubleshooting** - Common issues and solutions
 
 ## Learning Resources
 
-- **[Examples Gallery](examples/)** - Real-world code examples
-- **[Video Tutorials](tutorials/)** - Step-by-step guides
-- **[Community Forum](https://github.com/pymmcore-plus/pymmcore-plus/discussions)** - Get help and share knowledge
+- **Examples Gallery** - Real-world code examples
+- **Video Tutorials** - Step-by-step guides
+- **Community Forum** - Get help and share knowledge
 
 ## Stay Updated
 
-- **[Release Notes](changelog.md)** - What's new in each version
-- **[Roadmap](roadmap.md)** - Planned features and improvements
-- **[Newsletter](newsletter.md)** - Monthly updates and tips
+- **Release Notes** - What's new in each version
+- **Roadmap** - Planned features and improvements
+- **Newsletter** - Monthly updates and tips
 
 ---
 

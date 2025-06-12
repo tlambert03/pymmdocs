@@ -1,5 +1,5 @@
 
-# 2: For Python Users
+# Quickstart for Python Users
 
 Supercharge your microscopy workflows with powerful Python APIs.
 
@@ -142,8 +142,6 @@ def display_frame(image, event, metadata):
 
 ## Next Steps
 
-- **[API Reference](api/core.md)** - Complete pymmcore-plus documentation
-- **[Widget Gallery](widgets/gallery.md)** - Pre-built GUI components
-- **[Integration Examples](examples/)** - Real-world workflows
-
----
+- **API Reference** - Complete pymmcore-plus documentation
+- **Widget Gallery** - Pre-built GUI components
+- **Integration Examples** - Real-world workflows

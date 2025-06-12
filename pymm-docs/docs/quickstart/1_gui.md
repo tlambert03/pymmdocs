@@ -1,5 +1,5 @@
 
-# 1: For GUI Users
+# Quickstart for GUI Users
 
 Get a complete microscopy application with zero code required.
 
@@ -50,8 +50,6 @@ The application will open with a modern, dockable interface including:
 
 ## Next Steps
 
-- **[Hardware Configuration Guide](hardware-config.md)** - Detailed device setup
-- **[MDA Planning Tutorial](mda-tutorial.md)** - Design complex experiments
-- **[Image Analysis Workflows](analysis.md)** - Built-in analysis tools
-
----
+- **Hardware Configuration Guide** - Detailed device setup
+- **MDA Planning Tutorial** - Design complex experiments
+- **Image Analysis Workflows** - Built-in analysis tools
