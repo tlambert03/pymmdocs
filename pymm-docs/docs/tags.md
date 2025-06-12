@@ -1,6 +1,6 @@
 ---
 title: Tags
-icon: octicons/tag-16
+icon: material/tag-outline
 description: Guide and documentation.
 ---
 

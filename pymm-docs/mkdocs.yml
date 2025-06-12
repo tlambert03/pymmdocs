@@ -16,10 +16,12 @@ nav:
           - quickstart/2_library.md
           - quickstart/3_developer.md
       - Tags: tags.md
-  # - "useq-schema": "!include ./submodules/useq-schema/mkdocs.yml"
-  # - "pymmcore-plus": "!include ./submodules/pymmcore-plus/mkdocs.yml"
+  - "useq-schema": "!include ./submodules/useq-schema/mkdocs.yml"
+  - "pymmcore-plus": "!include ./submodules/pymmcore-plus/mkdocs.yml"
   - "pymmcore-widgets": "!include ./submodules/pymmcore-widgets/mkdocs.yml"
-  # - "pymmcore-gui": "!include ./submodules/pymmcore-gui/mkdocs.yml"
+  - "pymmcore-gui": "!include ./submodules/pymmcore-gui/mkdocs.yml"
+  - API Reference:
+      - "<code class='doc-symbol doc-symbol-nav doc-symbol-class'></code>CMMCorePlus": reference/pymmcore_plus/core/CMMCorePlus.md
 
 theme:
   name: material
@@ -38,7 +40,7 @@ theme:
     - navigation.tabs
     - navigation.top  # back to top button
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-pruning
-    - navigation.prune
+    # - navigation.prune
     - search.highlight
     - search.share
     - search.suggest
@@ -107,14 +109,21 @@ plugins:
       backends:
         - codespell:
             dictionaries: [clear]
-  # - api-autonav:
-  # modules:
-  # - submodules/useq-schema/src/useq
-  # - submodules/pymmcore-plus/src/pymmcore_plus
-  # - submodules/pymmcore-widgets/src/pymmcore_widgets
-  # - submodules/pymmcore-gui/src/pymmcore_gui
-  # exclude:
-  # - useq.pycromanager
+  - api-autonav:
+      modules:
+        - submodules/useq-schema/src/useq
+        - submodules/pymmcore-plus/src/pymmcore_plus
+        - submodules/pymmcore-widgets/src/pymmcore_widgets
+        # - submodules/pymmcore-gui/src/pymmcore_gui
+      module_options:
+        pymmcore_plus:
+          preload_modules: [pymmcore]
+          filters: ["!^_", "!PCoreSignaler", "!CMMCorePlus"]
+          inherited_members: true
+          allow_inspection: false
+          show_if_no_docstring: true
+      exclude:
+        - useq.pycromanager
   - mkdocstrings:
       handlers:
         python:
@@ -124,12 +133,12 @@ plugins:
             - https://docs.pydantic.dev/latest/objects.inv
             - https://cmap-docs.readthedocs.io/objects.inv
             - https://psygnal.readthedocs.io/en/latest/objects.inv
-            - https://pymmcore-plus.github.io/pymmcore-plus/objects.inv # remove later
-            - https://pymmcore-plus.github.io/useq-schema/objects.inv# remove later
+            # - https://pymmcore-plus.github.io/pymmcore-plus/objects.inv # remove later
+            # - https://pymmcore-plus.github.io/useq-schema/objects.inv# remove later
           options:
             docstring_section_style: list # or "table"
             docstring_style: "numpy"
-            filters: ["!^_"]
+            filters: ["!^_", "!CMMCorePlus"]
             heading_level: 2
             merge_init_into_class: true
             parameter_headings: true
@@ -142,6 +151,7 @@ plugins:
 
 hooks:
   - submodules/pymmcore-widgets/docs/_hooks.py
+  - submodules/pymmcore-plus/docs/_hooks.py
   - docs/_global_hooks.py
 
 extra_javascript:
