@@ -950,15 +950,16 @@ wheels = [
 
 [[package]]
 name = "mkdocs-api-autonav"
-version = "0.2.2"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "mkdocs" },
     { name = "mkdocstrings-python" },
+    { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/48/aa/8bfd448f0e4b3033e9e1ffe8df434d87b2cb2fdc9a2d1c78e49b653e585a/mkdocs_api_autonav-0.2.2.tar.gz", hash = "sha256:c69dd7ae853ea675437292209dd36b984071ca66d3b28a1b2cc5aaa9c1474b83", size = 73613, upload-time = "2025-05-18T20:14:42.63Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/41/39/4f24167d977a70eb72afcea7632fd0ecca3dd0e63081d8060c0ea050aeef/mkdocs_api_autonav-0.3.0.tar.gz", hash = "sha256:1c0f10c69db38bd35d9c343814c50c033224b790e68b45876ca7e3cdfd25005c", size = 74239, upload-time = "2025-06-13T14:58:38.015Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/96/82/df826155dacfe74b563cbafc76b9d9f714ccc52d5adfe3e76285c65a0ca7/mkdocs_api_autonav-0.2.2-py3-none-any.whl", hash = "sha256:5aea2a0b47416699276dd29a73c0936c80b06b4d8f47f42ef1c946407cdb4cf3", size = 11777, upload-time = "2025-05-18T20:14:41.229Z" },
+    { url = "https://files.pythonhosted.org/packages/18/5c/19f8b99d248f3fc99283374d4eadbc1863439b0a6f31eb396a650a9ad315/mkdocs_api_autonav-0.3.0-py3-none-any.whl", hash = "sha256:3e5fce7a43e1a131b31e23b2391cde8b189a0a0aa772b74782c7141c3617e618", size = 12169, upload-time = "2025-06-13T14:58:36.972Z" },
 ]
 
 [[package]]
@@ -1886,7 +1887,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "mkdocs-api-autonav", specifier = ">=0.2.1" },
+    { name = "mkdocs-api-autonav", specifier = ">=0.3" },
     { name = "mkdocs-material", specifier = ">=9.6.14" },
     { name = "mkdocs-minify-plugin", specifier = ">=0.8.0" },
     { name = "mkdocs-monorepo-plugin", specifier = ">=1.1.0" },
@@ -2053,10 +2054,8 @@ dev = [
 ]
 docs = [
     { name = "mkdocs" },
-    { name = "mkdocs-api-autonav" },
     { name = "mkdocs-autorefs" },
     { name = "mkdocs-material" },
-    { name = "mkdocs-minify-plugin" },
     { name = "mkdocs-typer" },
     { name = "mkdocstrings" },
     { name = "mkdocstrings-python" },
@@ -2182,13 +2181,11 @@ dev = [
 ]
 docs = [
     { name = "mkdocs", specifier = ">=1.4" },
-    { name = "mkdocs-api-autonav", specifier = ">=0.2.2" },
-    { name = "mkdocs-autorefs", specifier = ">=1.3.1" },
+    { name = "mkdocs-autorefs", specifier = "==1.3.1" },
     { name = "mkdocs-material", specifier = ">=9.5" },
-    { name = "mkdocs-minify-plugin", specifier = ">=0.8.0" },
-    { name = "mkdocs-typer", specifier = ">=0.0.3" },
-    { name = "mkdocstrings", specifier = ">=0.22.0" },
-    { name = "mkdocstrings-python", specifier = ">=1.1.2" },
+    { name = "mkdocs-typer", specifier = "==0.0.3" },
+    { name = "mkdocstrings", specifier = "==0.22.0" },
+    { name = "mkdocstrings-python", specifier = "==1.1.2" },
 ]
 pyqt5 = [
     { name = "msgpack", specifier = ">=1" },
